@@ -1,0 +1,60 @@
+.btn {
+  --#{$prefix}btn-padding-x: #{$btn-padding-x};
+  --#{$prefix}btn-padding-y: #{$btn-padding-y};
+  --#{$prefix}btn-font-weight: #{$btn-fw};
+  --#{$prefix}btn-line-height: #{$btn-lh};
+  --#{$prefix}btn-color: #{$btn-color};
+  --#{$prefix}btn-bg: transparent;
+  --#{$prefix}btn-border-width: #{$btn-border-width};
+  --#{$prefix}btn-border-color: transparent;
+  --#{$prefix}btn-border-radius: #{$btn-border-radius};
+
+  display: inline-block;
+  padding: var(--#{$prefix}btn-padding-y) var(--#{$prefix}btn-padding-x);
+  font-weight: var(--#{$prefix}btn-font-weight);
+  line-height: var(--#{$prefix}btn-line-height);
+  color: var(--#{$prefix}btn-color);
+  text-align: center;
+  vertical-align: middle;
+  border: var(--#{$prefix}btn-border-width) solid var(--#{$prefix}btn-border-color);
+  @include border-radius(var(--#{$prefix}btn-border-radius));
+  @include box-shadow(var(--#{$prefix}btn-box-shadow));
+
+  @each $color, $value in $theme-colors {
+    .btn-#{$color} {
+      @if $color == "light" {
+        @include button-variant(
+        $value,
+        $value,
+        );
+      } @else if $color == "dark" {
+        @include button-variant(
+        $value,
+        $value,
+        );
+      } @else {
+        @include button-variant($value, $value);
+      }
+    }
+  }
+
+  @each $color, $value in $theme-colors {
+    .btn-outline-#{$color} {
+      @include button-outline-variant($value);
+    }
+  }
+
+  .btn-link {
+    --#{$prefix}btn-font-weight: #{$fw-normal};
+    --#{$prefix}btn-bg: transparent;
+    --#{$prefix}btn-border-color: transparent;
+  }
+
+  .btn-lg {
+    @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-fsz-lg, $btn-border-radius-lg);
+  }
+
+  .btn-sm {
+    @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-fsz-sm, $btn-border-radius-sm);
+  }
+}

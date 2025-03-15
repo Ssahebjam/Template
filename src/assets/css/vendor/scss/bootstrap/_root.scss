@@ -1,19 +1,13 @@
 :root,
 [data-bs-theme="light"] {
-  @each $color, $value in $colors {
-    --#{$prefix}#{$color}: #{$value};
-  }
   @each $color, $value in $theme-colors {
     --#{$prefix}#{$color}: #{$value};
-  }
-  @each $color, $value in $theme-colors-text {
-    --#{$prefix}#{$color}-text-emphasis: #{$value};
   }
   @each $color, $value in $theme-colors-rgb {
     --#{$prefix}#{$color}-rgb: #{$value};
   }
 
-  --#{$prefix}white-rgb: #{to-rgb($white)};
+  --#{$prefix}white-rgb: #{to-rgb($light)};
   --#{$prefix}black-rgb: #{to-rgb($black)};
 
   --#{$prefix}body-color: #{$body-color};

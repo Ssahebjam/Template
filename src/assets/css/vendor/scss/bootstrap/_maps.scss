@@ -4,80 +4,27 @@
 
 // scss-docs-start theme-colors-rgb
 $theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value") !default;
-// scss-docs-end theme-colors-rgb
-
-// scss-docs-start theme-text-map
-$theme-colors-text: (
-  "primary": $primary,
-  "secondary": $secondary,
-  "success": $success,
-  "info": $info,
-  "warning": $warning,
-  "danger": $danger,
-  "light": $light,
-  "dark": $dark,
-) !default;
-// scss-docs-end theme-text-map
-
-// scss-docs-start theme-bg-subtle-map
-$theme-colors-bg-subtle: (
-  "primary": $primary,
-  "secondary": $secondary,
-  "success": $success,
-  "info": $info,
-  "warning": $warning,
-  "danger": $danger,
-  "light": $light,
-  "dark": $dark,
-) !default;
-// scss-docs-end theme-bg-subtle-map
-
-// scss-docs-start theme-border-subtle-map
-// scss-docs-end theme-border-subtle-map
 
 $theme-colors-text-dark: null !default;
 $theme-colors-bg-subtle-dark: null !default;
 $theme-colors-border-subtle-dark: null !default;
 
-
-// Utilities maps
-//
-// Extends the default `$theme-colors` maps to help create our utilities.
-
-// Come v6, we'll de-dupe these variables. Until then, for backward compatibility, we keep them to reassign.
-// scss-docs-start utilities-colors
 $utilities-colors: $theme-colors-rgb !default;
-// scss-docs-end utilities-colors
-
-// scss-docs-start utilities-text-colors
 $utilities-text: map-merge(
   $utilities-colors,
   (
     "black": to-rgb($black),
-    "white": to-rgb($white),
+    "white": to-rgb($light),
     "body": to-rgb($body-color)
   )
 ) !default;
 $utilities-text-colors: map-loop($utilities-text, rgba-css-var, "$key", "text") !default;
 
-$utilities-text-emphasis-colors: (
-  "primary-emphasis": var(--#{$prefix}primary-text-emphasis),
-  "secondary-emphasis": var(--#{$prefix}secondary-text-emphasis),
-  "success-emphasis": var(--#{$prefix}success-text-emphasis),
-  "info-emphasis": var(--#{$prefix}info-text-emphasis),
-  "warning-emphasis": var(--#{$prefix}warning-text-emphasis),
-  "danger-emphasis": var(--#{$prefix}danger-text-emphasis),
-  "light-emphasis": var(--#{$prefix}light-text-emphasis),
-  "dark-emphasis": var(--#{$prefix}dark-text-emphasis)
-) !default;
-// scss-docs-end utilities-text-colors
-
-// scss-docs-start utilities-bg-colors
 $utilities-bg: map-merge(
   $utilities-colors,
   (
     "black": to-rgb($black),
-    "white": to-rgb($white),
+    "white": to-rgb($light),
     "body": to-rgb($body-bg)
   )
 ) !default;
@@ -89,7 +36,7 @@ $utilities-border: map-merge(
   $utilities-colors,
   (
     "black": to-rgb($black),
-    "white": to-rgb($white)
+    "white": to-rgb($light)
   )
 ) !default;
 $utilities-border-colors: map-loop($utilities-border, rgba-css-var, "$key", "border") !default;
@@ -104,9 +51,6 @@ $utilities-border-subtle: (
   "light-subtle": var(--#{$prefix}light-border-subtle),
   "dark-subtle": var(--#{$prefix}dark-border-subtle)
 ) !default;
-// scss-docs-end utilities-border-colors
-
-$utilities-links-underline: map-loop($utilities-colors, rgba-css-var, "$key", "link-underline") !default;
 
 $negative-spacers: if($enable-negative-margins, negativify-map($spacers), null) !default;
 

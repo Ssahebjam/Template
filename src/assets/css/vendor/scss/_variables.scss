@@ -2,72 +2,74 @@
 ####################################################################### Vars ####################################################################
 /*-----------------------------------------------------------------------------------------------------------------------------------------------*/
 
- $white: #fff;             
- $black: #000;             
- $blue: #0d6efd;           
- $purple: #6f42c1;         
- $pink: #d63384;           
- $red: #dc3545;            
- $orange: #FF782C;         
- $yellow: #ffc107;         
- $green: #198754;                                         
+$primary: #5264FF;
+$secondary: #333;
+$success: #333;
+$info: #333;
+$warning: #333;
+$danger: #333;
+$light: white;
+$black: black;
 
- $primary: #5264FF;
- $secondary: $black;
- $success: $green;
- $info: $pink;
- $warning: $orange;
- $danger: $red;
- $light: $white;
- $dark: $black;
+$theme-colors: (
+"primary":    $primary,
+"secondary":  $secondary,
+"success":    $success,
+"info":       $info,
+"warning":    $warning,
+"danger":     $danger,
+"light":      $light,
+"dark":       $black,
+) !default;
 
- $body-color:                #404040 !default;
- $body-bg:                   #FFFBFB !default;
+$body-color:                #404040 !default;
+$body-bg:                   #FFFBFB !default;
 
- $body-secondary-color:      rgba($body-color, .75) !default;
- $body-secondary-bg:         red;
+$body-secondary-color:      rgba($body-color, .75) !default;
+$body-secondary-bg:         red;
 
- $variable-prefix:             bs- !default; // Deprecated in v5.2.0 for the shorter `$prefix`
- $prefix:                      $variable-prefix !default;
+$variable-prefix:             bs- !default; // Deprecated in v5.2.0 for the shorter `$prefix`
+$prefix:                      $variable-prefix !default;
 
- $text-warning: #FF782C;
+$text-warning: #FF782C;
 
- $text-muted:                  var(--#{$variable-prefix}secondary-color) !default;
+$text-muted:                  var(--#{$variable-prefix}secondary-color) !default;
 
- $body-fsz: 1rem !default;
- $body-fw: 1rem !default;
- $body-flh: 1rem !default;
+$body-fsz: 1rem !default;
+$body-fw: 1rem !default;
+$body-flh: 1rem !default;
 
 
- $grid-columns:                12 !default;
- $grid-gutter-width:           1.5rem !default;
- $grid-row-columns:            6 !default;
+$grid-columns:                12 !default;
+$grid-gutter-width:           1.5rem !default;
+$grid-row-columns:            6 !default;
 
- $spacer: 1rem !default;
+$spacer: 1rem !default;
 
- $min-contrast-ratio:   4.5 !default;
+$min-contrast-ratio:   4.5 !default;
 
- $color-contrast-dark:      $black !default;
- $color-contrast-light:     $white !default;
+$color-contrast-dark:      $black !default;
+$color-contrast-light:     $light !default;
+
 /*-------------------------------------------------------------------------------------------------------------------------------------------------
 ####################################################################### Features ####################################################################
 /*-----------------------------------------------------------------------------------------------------------------------------------------------*/
 
- $enable-negative-margins:     true;
+$enable-negative-margins:     true;
 
- $enable-smooth-scroll:        true !default;
- $enable-grid-classes:         true !default;
- $enable-container-classes:    true !default;
- $enable-cssgrid:              false !default;
- $enable-button-pointers:      true !default;
- $enable-rfs:                  true !default;
- $enable-validation-icons:     true !default;
- $enable-deprecation-messages: true !default;
- $enable-important-utilities:  true !default;
- 
- $enable-dark-mode:            true !default;
- $color-mode-type:             data !default;
- $pre-color:                   null !default;
+$enable-smooth-scroll:        true !default;
+$enable-grid-classes:         true !default;
+$enable-container-classes:    true !default;
+$enable-cssgrid:              false !default;
+$enable-button-pointers:      true !default;
+$enable-rfs:                  true !default;
+$enable-validation-icons:     true !default;
+$enable-deprecation-messages: true !default;
+$enable-important-utilities:  true !default;
+
+$enable-dark-mode:            true !default;
+$color-mode-type:             data !default;
+$pre-color:                   null !default;
 
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -75,11 +77,11 @@
 /*-----------------------------------------------------------------------------------------------------------------------------------------------*/
 
 $container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
-  xl: 1140px,
-  xxl: 1320px
+sm: 540px,
+md: 720px,
+lg: 960px,
+xl: 1140px,
+xxl: 1320px
 ) !default;
 
 @include _assert-ascending($container-max-widths, "$container-max-widths");
@@ -91,105 +93,59 @@ $container-padding-x: $grid-gutter-width !default;
 /*-----------------------------------------------------------------------------------------------------------------------------------------------*/
 
 $spacers: (
-  0: 0,
-  1: $spacer * .25,
-  2: $spacer * .5,
-  3: $spacer,
-  4: $spacer * 1.5,
-  5: $spacer * 3,
+0: 0,
+1: $spacer * .25,
+2: $spacer * .5,
+3: $spacer,
+4: $spacer * 1.5,
+5: $spacer * 3,
 ) !default;
 
 $grid-breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
-  xxl: 1400px
+xs: 0,
+sm: 576px,
+md: 768px,
+lg: 992px,
+xl: 1200px,
+xxl: 1400px
 ) !default;
 
- @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
- @include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
 
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------
 #######################################################################  Position  ####################################################################
 /*-----------------------------------------------------------------------------------------------------------------------------------------------*/
 
- $body-text-align:           null !default;
+$body-text-align:           null !default;
 
 $position-values: (
-  0: 0,
-  50: 50%,
-  100: 100%
+0: 0,
+50: 50%,
+100: 100%
 ) !default;
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------
 ####################################################################### Color Maps ####################################################################
 /*-----------------------------------------------------------------------------------------------------------------------------------------------*/
-$theme-colors: (
-  "primary":    $primary,
-  "secondary":  $secondary,
-  "success":    $success,
-  "info":       $info,
-  "warning":    $warning,
-  "danger":     $danger,
-  "light":      $light,
-  "dark":       $dark,
-  "orange":     $orange
-) !default;
-
-$theme-colors-bg: (
-  "primary":    $primary,
-  "secondary":  $secondary,
-  "success":    $success,
-  "info":       $info,
-  "warning":    $warning,
-  "danger":     $danger,
-  "light":      $light,
-  "dark":       $dark
-) !default;
-
-$theme-colors-text: (
-  "primary":    $primary,
-  "secondary":  $secondary,
-  "success":    $success,
-  "info":       $info,
-  "warning":    $warning,
-  "danger":     $danger,
-  "light":      $light,
-  "dark":       $dark,
-) !default;
-
-$colors: (
-  "blue":       $blue,
-  "purple":     $purple,
-  "pink":       $pink,
-  "red":        $red,
-  "orange":     $orange,
-  "yellow":     $yellow,
-  "green":      $green,
-  "black":      $black,
-  "white":      $white,
-) !default;
-
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------
 ####################################################################### Border ####################################################################
 /*-----------------------------------------------------------------------------------------------------------------------------------------------*/
 
- $border-width:   1.22px !default;
+$border-width:   1.22px !default;
 
- $utilities-border-colors: $theme-colors;
+$utilities-border-colors: $theme-colors;
 
- $enable-rounded: true !default;
+$enable-rounded: true !default;
 
 $border-widths: (
-  1: 1px,
-  2: 2px,
-  3: 3px,
-  4: 4px,
-  5: 5px
+1: 1px,
+2: 2px,
+3: 3px,
+4: 4px,
+5: 5px
 ) !default;
 
 $border-style: solid !default;
@@ -203,6 +159,34 @@ $border-radius-xxl:           $border-radius + 2rem;
 $border-radius-pill:          50rem;
 
 $border-radius-2xl:           $border-radius-xxl !default;
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------
+####################################################################### Buttons ####################################################################
+/*-----------------------------------------------------------------------------------------------------------------------------------------------*/
+
+$btn-color:                   var(--#{$prefix}body-color) !default;
+$btn-padding-y:               1rem !default;
+$btn-padding-x:               1rem !default;
+$btn-fsz:                     1rem !default;
+$btn-lh:                      30px !default;
+
+$btn-padding-y-sm:            1rem !default;
+$btn-padding-x-sm:            1rem !default;
+$btn-fsz-sm:                  1rem !default;
+
+$btn-padding-y-lg:            1rem !default;
+$btn-padding-x-lg:            1rem !default;
+$btn-fsz-lg:                  1rem !default;
+
+$btn-border-width:            $border-width !default;
+
+$btn-fw:                      400 !default;
+
+$btn-link-color:              var(--#{$prefix}link-color) !default;
+
+$btn-border-radius:           var(--#{$prefix}border-radius) !default;
+$btn-border-radius-sm:        var(--#{$prefix}border-radius-sm) !default;
+$btn-border-radius-lg:        var(--#{$prefix}border-radius-lg) !default;
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------
 ####################################################################### Shadow ####################################################################
@@ -275,21 +259,21 @@ $h5-fsz:                $fsz-base * 1.25 !default;
 $h6-fsz:                $fsz-base !default;
 
 $font-sizes: (
-  1: $h1-fsz,
-  2: $h2-fsz,
-  3: $h3-fsz,
-  4: $h4-fsz,
-  5: $h5-fsz,
-  6: $h6-fsz
+1: $h1-fsz,
+2: $h2-fsz,
+3: $h3-fsz,
+4: $h4-fsz,
+5: $h5-fsz,
+6: $h6-fsz
 ) !default;
 
 $display-font-sizes: (
-  1: 5rem,
-  2: 4.5rem,
-  3: 4rem,
-  4: 3.5rem,
-  5: 3rem,
-  6: 2.5rem
+1: 5rem,
+2: 4.5rem,
+3: 4rem,
+4: 3.5rem,
+5: 3rem,
+6: 2.5rem
 ) !default;
 
 $small-font-size:             .875em !default;
@@ -312,9 +296,9 @@ $zindex-tooltip:                    1080 !default;
 $zindex-toast:                      1090 !default;
 
 $zindex-levels: (
-  n1: -1,
-  0: 0,
-  1: 1,
-  2: 2,
-  3: 3
+n1: -1,
+0: 0,
+1: 1,
+2: 2,
+3: 3
 ) !default;
